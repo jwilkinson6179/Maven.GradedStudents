@@ -233,4 +233,23 @@ public class StudentTest
 
         assertEquals(-14, actual);
     }
+
+    @Test
+    public void tieBreaker()
+    {
+        // GIVEN
+
+        Double[] scoresA = { 100.0 };
+        Student testStudentA = new Student("C", "Charlie", scoresA);
+        Double[] scoresB = { 100.0 };
+        Student testStudentB = new Student("A", "Alpha", scoresB);
+        int expected = 2;
+        // WHEN
+
+        int actual = testStudentA.compareTo(testStudentB);
+
+        // THEN
+
+        assertEquals(expected, actual);
+    }
 }

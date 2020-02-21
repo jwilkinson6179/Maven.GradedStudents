@@ -1,12 +1,11 @@
 package io.zipcoder;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Map;
+import java.util.*;
+import java.util.logging.Logger;
 
 public class Classroom
 {
+    private static final Logger LOGGER = Logger.getLogger(Classroom.class.getName());
     ArrayList<Student> pupils;
 
     public Classroom()
@@ -71,10 +70,10 @@ public class Classroom
 
     public void removeStudent(String firstName, String lastName)
     {
-        for(Integer i = 0; i < pupils.size(); i++)
+        for(int i = 0; i < pupils.size(); i++)
         {
-            if(     pupils.get(i).getFirstName() == firstName &&
-                    pupils.get(i).getLastName() == lastName)
+            if(     (pupils.get(i).getFirstName().equals(firstName)) &&
+                    (pupils.get(i).getLastName().equals(lastName)))
             {
                 pupils.remove(i);
             }
@@ -90,7 +89,7 @@ public class Classroom
 
         for(Integer i = 0; i < pupilsByScore.size(); i++)
         {
-            result[i] = pupils.get(i);
+            result[i] = pupilsByScore.get(i);
         }
 
         return result;
@@ -98,7 +97,36 @@ public class Classroom
 
     public Map<Student, Character> getGradeBook()
     {
+        Map<Student, Character> grades = new HashMap<>();
+        Student[] studentsByScores = this.getStudentsByScore();
+        Integer totalStudents = studentsByScores.length;
 
-        return null;
+        Integer As = totalStudents / 10; // Top 10%
+        Integer Bs = totalStudents / 30; // 11% to 29%
+        Integer Cs = totalStudents / 50; // 30% to 50%
+        Integer Ds = totalStudents / 90; // 51% to 89%
+
+        for(Integer i = 0; i < As; i++)
+        {
+            grades.put(studentsByScores[i], 'A');
+        }
+        for(Integer i = As; i < Bs; i++)
+        {
+            grades.put(studentsByScores[i], 'B');
+        }
+        for(Integer i = Bs; i < Cs; i++)
+        {
+            grades.put(studentsByScores[i], 'C');
+        }
+        for(Integer i = Ds; i < Ds; i++)
+        {
+            grades.put(studentsByScores[i], 'D');
+        }
+        for(Integer i = Ds; i < totalStudents; i++)
+        {
+            grades.put(studentsByScores[i], 'F');
+        }
+
+        return grades;
     }
 }

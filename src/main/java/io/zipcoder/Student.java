@@ -96,14 +96,16 @@ public class Student implements Comparable<Student>
         {
             if(this.getLastName().equals(otherStudent.getLastName()))
             {
-                return this.getFirstName().compareTo(otherStudent.getFirstName());
+                return -1 * this.getFirstName().compareTo(otherStudent.getFirstName());
+            }
+            else
+            {
+                return -1 * this.getLastName().compareTo(otherStudent.getLastName());
             }
         }
         else
         {
             return (int)(this.getAverageExamScore() - otherStudent.getAverageExamScore());
         }
-
-        return 0;
     }
 }
