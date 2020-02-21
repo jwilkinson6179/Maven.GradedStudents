@@ -197,4 +197,40 @@ public class StudentTest
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void ComparingGoodAndBadStudent()
+    {
+        Double[] goodGrades = { 100.0 };
+        Student goodStudent = new Student("James", "Wilkinson", goodGrades );
+        Double[] badGrades = { 20.0 };
+        Student badStudent = new Student("Gary", "Wilkinson", badGrades);
+
+        int actual = goodStudent.compareTo(badStudent);
+
+        assertEquals(80, actual);
+    }
+
+    @Test
+    public void ComparingGoodAndGoodStudent()
+    {
+        Double[] goodGrades = { 100.0 };
+        Student goodStudentJ = new Student("James", "Wilkinson", goodGrades);
+        Student goodStudentG = new Student("Gary", "Wilkinson", goodGrades);
+
+        int actual = goodStudentJ.compareTo(goodStudentG);
+
+        assertEquals(3, actual);
+    }
+    @Test
+    public void ComparingDoeStudents()
+    {
+        Double[] goodGrades = { 100.0 };
+        Student goodStudentJ = new Student("Jane", "Doe", goodGrades);
+        Student goodStudentG = new Student("John", "Doe", goodGrades);
+
+        int actual = goodStudentJ.compareTo(goodStudentG);
+
+        assertEquals(-14, actual);
+    }
 }

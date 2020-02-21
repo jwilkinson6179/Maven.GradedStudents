@@ -1,6 +1,8 @@
 package io.zipcoder;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Map;
 
 public class Classroom
@@ -70,8 +72,17 @@ public class Classroom
 
     public Student[] getStudentsByScore()
     {
+        ArrayList<Student> pupilsByScore = new ArrayList<>();
+        Student[] result = new Student[pupils.size()];
+        pupilsByScore.addAll(pupils);
+        Collections.sort(pupilsByScore, Collections.reverseOrder());
 
-        return null;
+        for(Integer i = 0; i < pupilsByScore.size(); i++)
+        {
+            result[i] = pupils.get(i);
+        }
+
+        return result;
     }
 
     public Map<Student, Character> getGradeBook()

@@ -91,26 +91,19 @@ public class Student implements Comparable<Student>
     public int compareTo(Student otherStudent)
     {
         // TODO: Lexigraphical ordering
-/*
+
         if(this.getAverageExamScore().equals(otherStudent.getAverageExamScore()))
         {
             if(this.getLastName().equals(otherStudent.getLastName()))
             {
-                if(this.getFirstName() < otherStudent.getFirstName())
-                {
-                    return 1;
-                }
+                return this.getFirstName().compareTo(otherStudent.getFirstName());
             }
         }
         else
- */
-        if(this.getAverageExamScore() < otherStudent.getAverageExamScore())
         {
-            return -1;
+            return (int)(this.getAverageExamScore() - otherStudent.getAverageExamScore());
         }
-        else
-        {
-            return 1;
-        }
+
+        return 0;
     }
 }
