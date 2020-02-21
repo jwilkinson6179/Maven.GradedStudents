@@ -51,6 +51,7 @@ public class Classroom
         return sum / pupils.size();
     }
 
+    // TODO: Duplicate prevention?
     public void addStudent(Student newStudent)
     {
         pupils.add(newStudent);
@@ -58,7 +59,13 @@ public class Classroom
 
     public void removeStudent(String firstName, String lastName)
     {
-
+        for(Integer i = 0; i < pupils.size(); i++)
+        {
+            if(pupils.get(i).getFirstName() == firstName && pupils.get(i).getLastName() == lastName)
+            {
+                pupils.remove(i);
+            }
+        }
     }
 
     public Student[] getStudentsByScore()

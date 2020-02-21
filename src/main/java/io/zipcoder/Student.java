@@ -3,7 +3,7 @@ package io.zipcoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Student
+public class Student implements Comparable<Student>
 {
     String firstName;
     String lastName;
@@ -85,5 +85,32 @@ public class Student
         output.append(String.format("Average Score: %.0f\n", getAverageExamScore()));
         output.append(getExamScores());
         return output.toString();
+    }
+
+    @Override
+    public int compareTo(Student otherStudent)
+    {
+        // TODO: Lexigraphical ordering
+/*
+        if(this.getAverageExamScore().equals(otherStudent.getAverageExamScore()))
+        {
+            if(this.getLastName().equals(otherStudent.getLastName()))
+            {
+                if(this.getFirstName() < otherStudent.getFirstName())
+                {
+                    return 1;
+                }
+            }
+        }
+        else
+ */
+        if(this.getAverageExamScore() < otherStudent.getAverageExamScore())
+        {
+            return -1;
+        }
+        else
+        {
+            return 1;
+        }
     }
 }
