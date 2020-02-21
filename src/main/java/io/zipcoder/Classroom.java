@@ -31,15 +31,25 @@ public class Classroom
 
     public Student[] getStudents()
     {
-        Student[] result = new Student[pupils.size()];
-
-        for(Integer i = 0; i < pupils.size(); i++)
+        Student[] result;
+        if (pupils.size() == 0)
         {
-            result[i] = pupils.get(i);
+            result = new Student[0];
+        }
+        else
+            {
+
+                result = new Student[pupils.size()];
+
+                for (Integer i = 0; i < pupils.size(); i++)
+                {
+                    result[i] = pupils.get(i);
+                }
         }
 
         return result;
     }
+
 
     public Double getAverageExamScore()
     {
@@ -63,7 +73,8 @@ public class Classroom
     {
         for(Integer i = 0; i < pupils.size(); i++)
         {
-            if(pupils.get(i).getFirstName() == firstName && pupils.get(i).getLastName() == lastName)
+            if(     pupils.get(i).getFirstName() == firstName &&
+                    pupils.get(i).getLastName() == lastName)
             {
                 pupils.remove(i);
             }
