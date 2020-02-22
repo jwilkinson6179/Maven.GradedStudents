@@ -3,10 +3,14 @@ package io.zipcoder;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import static org.junit.Assert.assertEquals;
 
 public class ClassroomTest {
     Classroom testClass;
+    private static final Logger LOGGER = Logger.getLogger(Classroom.class.getName());
 
     @Test
     public void classroomConstructorAndGet()
@@ -176,5 +180,43 @@ public class ClassroomTest {
 
         assertEquals(unsortedExpected, unsortedActual);
         assertEquals(sortedExpected, sortedActual);
+    }
+
+    @Test
+    public void getGrades()
+    {
+        // GIVEN
+
+        Double[] scoresA = { 100.0 };
+        Student testStudentA = new Student("Paul", "Atredes", scoresA);
+        Double[] scoresB = { 97.0 };
+        Student testStudentB = new Student("Bilbo", "Baggins", scoresB);
+        Double[] scoresC = { 95.0 };
+        Student testStudentC = new Student("Moses", "Poses", scoresC);
+        Double[] scoresD = { 91.0 };
+        Student testStudentD = new Student("Timmy", "Grundersun", scoresD);
+        Double[] scoresE = { 94.0 };
+        Student testStudentE = new Student("Rudolph", "Raindeer", scoresE);
+        Double[] scoresF = { 87.2 };
+        Student testStudentF = new Student("Donald", "Duck", scoresF);
+        Double[] scoresG = { 88.0 };
+        Student testStudentG = new Student("Bugs", "Bunny", scoresG);
+        Double[] scoresH = { 94.2 };
+        Student testStudentH = new Student("Stevie", "Wonder", scoresH);
+        Double[] scoresI = { 81.5 };
+        Student testStudentI = new Student("Mark", "Milken", scoresI);
+        Double[] scoresJ = { 83.5 };
+        Student testStudentJ = new Student("Kobe", "Bryant", scoresJ);
+        Student[] pupils = { testStudentA, testStudentB, testStudentC, testStudentD, testStudentE,
+            testStudentF, testStudentG, testStudentH, testStudentI, testStudentJ };
+        testClass = new Classroom(pupils);
+
+        // WHEN
+
+        LOGGER.log(Level.INFO, "My Map: " + testClass.getGradeBook());
+
+        // THEN
+
+        assertEquals(1, 2);
     }
 }

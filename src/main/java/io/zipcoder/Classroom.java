@@ -102,9 +102,9 @@ public class Classroom
         Integer totalStudents = studentsByScores.length;
 
         Integer As = totalStudents / 10; // Top 10%
-        Integer Bs = totalStudents / 30; // 11% to 29%
-        Integer Cs = totalStudents / 50; // 30% to 50%
-        Integer Ds = totalStudents / 90; // 51% to 89%
+        Integer Bs = As * 3; // 11% to 29%
+        Integer Cs = As * 5; // 30% to 50%
+        Integer Ds = As * 9; // 51% to 89%
 
         for(Integer i = 0; i < As; i++)
         {
@@ -118,7 +118,7 @@ public class Classroom
         {
             grades.put(studentsByScores[i], 'C');
         }
-        for(Integer i = Ds; i < Ds; i++)
+        for(Integer i = Cs; i < Ds; i++)
         {
             grades.put(studentsByScores[i], 'D');
         }
