@@ -9,7 +9,7 @@ public class Student implements Comparable<Student>
     String lastName;
     ArrayList<Double> examScores;
 
-    public Student(String initFirstName, String initLastName, Double[] initExamScores)
+    public Student(String initFirstName, String initLastName, Double ... initExamScores)
     {
         firstName = initFirstName;
         lastName = initLastName;

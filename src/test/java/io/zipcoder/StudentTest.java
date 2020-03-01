@@ -252,4 +252,10 @@ public class StudentTest
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void testConstructor()
+    {
+        Student testStudent = new Student("James", "Wilkinson", 100.0, 67.0, 91.25);
+    }
 }
