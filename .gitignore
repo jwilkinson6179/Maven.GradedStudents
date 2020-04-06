@@ -52,3 +52,6 @@ fabric.properties
 .project
 .classpath
 .settings
+
+# Java bytecode
+target/
